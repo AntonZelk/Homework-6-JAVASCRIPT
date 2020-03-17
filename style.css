@@ -1,0 +1,89 @@
+.calc {
+    margin: 100px auto;
+    width: 500px;
+    height: 350px;
+    border-width: 2px;
+    border-style: none;
+    box-shadow: 0 0 15px #5B5B5B;
+    position: relative;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    background-color: #7b7e7b;
+}    
+.display{
+    margin: 30px auto 20px auto;
+}
+.addtext{
+    display: block;
+    height: 40px;
+    font-size: 34px;
+}
+.buttons {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 80px 80px 80px 80px 80px;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+}
+.operator span{
+    font-size: 15px;
+    vertical-align: top;
+}
+.lol {
+    margin-top: 20px;
+}
+
+.numbers, .operator, .decimal, .result, .clear, .trigOperator, .convert, .historyBtn {
+    height: 23px;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    -moz-box-shadow: inset 0px -14px 0px 0px #1c1a19;
+    -webkit-box-shadow: inset 0px -14px 0px 0px #1c1a19;
+    box-shadow: inset 0px -14px 0px 0px #1c1a19;
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #5c5a55), color-stop(1, #121210) );
+    background: -moz-linear-gradient( center top, #5c5a55 5%, #121210 100% );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5c5a55', endColorstr='#121210');
+    background-color: #5c5a55;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    border: 1px solid #595754;
+    display: inline-block;
+    color: #ddd;
+    font-family: arial,verdana;
+    font-size: 20px;
+    font-weight: normal;
+    padding-top: 5px;
+    text-decoration: none;
+    text-shadow: 0px 0px 0px #595754;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+.clear {
+    -webkit-box-shadow: inset 0px -14px 0px 0px #a61e1e;
+    box-shadow: inset 0px -14px 0px 0px #a61e1e;
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #a33b3b), color-stop(1, #ed7182) );
+    background: -moz-linear-gradient( center top, #a33b3b 5%, #ed7182 100% );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a33b3b', endColorstr='#ed7182');
+    background-color: #a33b3b;
+}
+
+ol {
+    margin: 50px auto;
+    padding-left: 0;
+    display: none;
+}
+li {
+    display: block;
+}
+.historyBtn {
+    margin-top: 10px;
+    grid-column: 2/5;
+}
+ol span{
+    display: inline-block;
+    margin-right: 10px;
+}
