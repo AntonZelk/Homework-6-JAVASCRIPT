@@ -86,53 +86,57 @@ function factorial(n) {
         return 1;
     } else { 
         return n * factorial( n - 1 ); 
-    }
-     
+    }  
 } 
+let help = (x,y,a,oper) => {
+    if( oper === 'sin'){
+        x = Math.sin(+y);
+    } else if (oper === 'cos'){
+        x = Math.cos(+y);
+    } else if (oper === 'tg'){
+        x = Math.tan(+y);
+    } else if (oper === 'ctg'){
+        x = 1 / Math.tan(+y);
+    }
+    display.value = +x.toFixed(9);
+    newLi(a + ' (' + y + ') ' + ' = ' + x);
+}
+
+let help2 = (x,y,a,oper) => {
+    let z = y;
+    y = (y/180) * Math.PI
+    if( oper === 'sin'){
+        x = Math.sin(+y);
+    } else if (oper === 'cos'){
+        x = Math.cos(+y);
+    } else if (oper === 'tg'){
+        x = Math.tan(+y);
+    } else if (oper === 'ctg'){
+        x = 1 / Math.tan(+y);
+    }
+    display.value = +x.toFixed(9);
+    newLi(a + ' (' + z + '&#176) ' + ' = ' + x);
+}
 
 let trigOperation = (trigOp) => {
     let localTrigOperationMemory = display.value;
     memoryPendingOperation = trigOp;
     if(memoryPendingOperation === 'sin' && convert.textContent === 'rad') {
-        memoryCurrentNumber = Math.sin(+localTrigOperationMemory);
-        display.value = +memoryCurrentNumber.toFixed(9);
-        newLi(memoryPendingOperation + ' (' + localTrigOperationMemory + ') ' + ' = ' + memoryCurrentNumber);
+       help(memoryCurrentNumber, localTrigOperationMemory, memoryPendingOperation, 'sin');
     } else if(memoryPendingOperation === 'cos' && convert.textContent === 'rad') {
-        memoryCurrentNumber = Math.cos(+localTrigOperationMemory);
-        display.value = +memoryCurrentNumber.toFixed(9);
-        newLi(memoryPendingOperation + ' (' + localTrigOperationMemory + ') ' + ' = ' + memoryCurrentNumber);
+        help(memoryCurrentNumber, localTrigOperationMemory, memoryPendingOperation, 'cos');
     } else if(memoryPendingOperation === 'tg' && convert.textContent === 'rad') {
-        memoryCurrentNumber = Math.tan(+localTrigOperationMemory);
-        display.value = +memoryCurrentNumber.toFixed(9);
-        newLi(memoryPendingOperation + ' (' + localTrigOperationMemory + ') ' + ' = ' + memoryCurrentNumber);
+        help(memoryCurrentNumber, localTrigOperationMemory, memoryPendingOperation, 'tg');
     } else if(memoryPendingOperation === 'ctg' && convert.textContent === 'rad') {
-        memoryCurrentNumber = 1 / Math.tan(+localTrigOperationMemory);
-        display.value = +memoryCurrentNumber.toFixed(9);
-        newLi(memoryPendingOperation + ' (' + localTrigOperationMemory + ') ' + ' = ' + memoryCurrentNumber);
+        help(memoryCurrentNumber, localTrigOperationMemory, memoryPendingOperation, 'ctg');
     } else if(memoryPendingOperation === 'sin' && convert.textContent === 'deg') {
-        let flag = localTrigOperationMemory;
-        localTrigOperationMemory = (localTrigOperationMemory/180) * Math.PI;
-        memoryCurrentNumber = Math.sin(+localTrigOperationMemory);
-        display.value = +memoryCurrentNumber.toFixed(9);
-        newLi(memoryPendingOperation + ' (' + flag + ' &#176) ' + ' = ' + memoryCurrentNumber);
+        help2(memoryCurrentNumber, localTrigOperationMemory, memoryPendingOperation, 'sin');
     } else if(memoryPendingOperation === 'cos' && convert.textContent === 'deg') {
-        let flag = localTrigOperationMemory;
-        localTrigOperationMemory = (localTrigOperationMemory/180) * Math.PI;
-        memoryCurrentNumber = Math.cos(+localTrigOperationMemory);
-        display.value = +memoryCurrentNumber.toFixed(9);
-        newLi(memoryPendingOperation + ' (' + flag + ' &#176) ' + ' = ' + memoryCurrentNumber);
+        help2(memoryCurrentNumber, localTrigOperationMemory, memoryPendingOperation, 'cos');
     } else if(memoryPendingOperation === 'tg' && convert.textContent === 'deg') {
-        let flag = localTrigOperationMemory;
-        localTrigOperationMemory = (localTrigOperationMemory/180) * Math.PI;
-        memoryCurrentNumber = Math.tan(+localTrigOperationMemory);
-        display.value = +memoryCurrentNumber.toFixed(9);
-        newLi(memoryPendingOperation + ' (' + flag + ' &#176) ' + ' = ' + memoryCurrentNumber);
+        help2(memoryCurrentNumber, localTrigOperationMemory, memoryPendingOperation, 'tg');
     } else if(memoryPendingOperation === 'ctg' && convert.textContent === 'deg') {
-        let flag = localTrigOperationMemory;
-        localTrigOperationMemory = (localTrigOperationMemory/180) * Math.PI;
-        memoryCurrentNumber = 1 / Math.tan(+localTrigOperationMemory);
-        display.value = +memoryCurrentNumber.toFixed(9);
-        newLi(memoryPendingOperation + ' (' + flag + ' &#176) ' + ' = ' + memoryCurrentNumber);
+        help2(memoryCurrentNumber, localTrigOperationMemory, memoryPendingOperation, 'ctg');
     }else if(memoryPendingOperation === 'n!') {
         let flag = localTrigOperationMemory;
         memoryCurrentNumber = factorial(parseFloat(localTrigOperationMemory));
